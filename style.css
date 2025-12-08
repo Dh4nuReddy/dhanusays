@@ -1,0 +1,622 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+}
+
+/* -------------------------
+   HEADER & NAVBAR
+---------------------------*/
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 9%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #222;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #b74b4b;
+    transition: 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* we are NOT using JS hamburger, so keep nav always visible */
+nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    font-size: 1.6rem;
+    color: #fff;
+    margin-left: 3rem;
+    padding-bottom: 0.3rem;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: #b74b4b;
+    border-bottom: 3px solid #b74b4b;
+}
+
+/* hide menu icon everywhere (we're not using JS) */
+.menu-toggle {
+    display: none;
+}
+
+/* -------------------------
+   GLOBAL SECTION STYLING
+---------------------------*/
+
+section {
+    min-height: 100vh;
+    padding: 10rem 9% 5rem;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Generic wrapper class some pages use */
+
+/* Section titles */
+.section-title {
+    font-size: 4.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 4rem;
+    color: #b74b4b;
+    letter-spacing: 0.07em;
+    animation: glowText 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowText {
+    from { text-shadow: 0 0 10px #b74b4b; }
+    to   { text-shadow: 0 0 25px #b74b4b, 0 0 35px #ff6666; }
+}
+
+/* -------------------------
+   HOME SECTION
+---------------------------*/
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6rem;
+    background: radial-gradient(circle at top, #1a1a1a 0%, #000 70%);
+}
+
+/* PROFILE IMAGE */
+.home-img {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #b74b4b;
+    box-shadow: 0 0 25px rgba(183, 75, 75, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* HOME TEXT CONTENT */
+.home-content {
+    max-width: 650px;
+}
+
+.home-content h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* global span color (used in name, etc.) */
+span {
+    color: #b74b4b;
+}
+
+.home-content p {
+    font-size: 1.6rem;
+    margin-top: 1.5rem;
+    line-height: 1.7;
+    color: #ddd;
+}
+
+/* -------------------------
+   TYPING EFFECT (ALIGNMENT FIXED)
+---------------------------*/
+
+.typing-text {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+
+    /* make "I'm a" + span align nicely */
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+}
+
+.typing-text span {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+    line-height: 1em;
+}
+
+.typing-text span::before {
+    content: "Web Developer";
+    color: #b74b4b;
+    animation: words 16s infinite;
+}
+
+.typing-text span::after {
+    content: "";
+    position: absolute;
+    background: #000;
+    width: calc(100% + 8px);
+    height: 1.1em;      /* cursor height close to text */
+    right: -8px;
+    border-left: 3px solid #b74b4b;
+    animation: cursor 0.7s infinite, typing 16s steps(15) infinite;
+}
+
+@keyframes cursor {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: #b74b4b; }
+}
+
+@keyframes words {
+    0%, 20%   { content: "Web Developer"; }
+    21%, 40%  { content: "IT Support Engineer"; }
+    41%, 60%  { content: "IoT Developer"; }
+    61%, 80%  { content: "Automobile Service Expert"; }
+    81%, 100% { content: "Business Enthusiast"; }
+}
+
+@keyframes typing {
+    0%, 10%, 30%, 50%, 70%, 90%, 100% { width: 0; }
+    5%, 20%, 40%, 60%, 80% { width: 100%; }
+}
+
+/* -------------------------
+   SOCIAL ICONS (HOME – ROUND)
+---------------------------*/
+
+.social-icons {
+    margin-top: 2.5rem;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.2rem;
+    height: 4.2rem;
+    margin-right: 1.5rem;
+    border-radius: 50%;
+    border: 2px solid #b74b4b;
+    color: #b74b4b;
+    font-size: 2rem;
+    transition: 0.3s ease;
+}
+
+/* make text spans (like usernames) not forced to red from global span */
+.social-icons a span {
+    color: inherit;
+}
+
+.social-icons a:hover {
+    background: #b74b4b;
+    color: #000;
+    transform: scale(1.2) translateY(-3px);
+    box-shadow: 0 0 20px #b74b4b;
+}
+
+/* -------------------------
+   BUTTON
+---------------------------*/
+
+.btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1.1rem 3rem;
+    border: 2px solid #b74b4b;
+    border-radius: 4rem;
+    color: #b74b4b;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background: #b74b4b;
+    color: #000;
+    transform: scale(1.03);
+    box-shadow: 0 0 20px #b74b4b;
+}
+
+/* -------------------------
+   PROJECT CARDS (services.html)
+---------------------------*/
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+}
+
+.card {
+    background: #111;
+    padding: 3rem 2.4rem;
+    border-radius: 1.6rem;
+    border: 1px solid #333;
+    box-shadow: 0 0 20px rgba(183, 75, 75, 0.15);
+    transform: translateY(0);
+    transition: 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: #b74b4b;
+    box-shadow: 0 0 40px rgba(183, 75, 75, 0.45);
+}
+
+.card h3 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    font-size: 1.6rem;
+    color: #ccc;
+    line-height: 1.7;
+}
+
+.card-link {
+    margin-top: 1.5rem;
+    display: inline-block;
+    color: #b74b4b;
+    font-size: 1.6rem;
+}
+
+/* -------------------------
+   SKILLS (skills.html)
+---------------------------*/
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 3rem;
+}
+
+.skill-column {
+    background: #111;
+    padding: 2.5rem 2rem;
+    border-radius: 1.4rem;
+    border: 1px solid #333;
+    transition: 0.3s ease;
+}
+
+.skill-column:hover {
+    transform: translateY(-8px);
+    border-color: #b74b4b;
+    box-shadow: 0 0 25px rgba(183, 75, 75, 0.4);
+}
+
+.skill-column h3 {
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.skill-column ul li {
+    font-size: 1.6rem;
+    color: #ccc;
+    margin-bottom: 0.6rem;
+}
+
+/* -------------------------
+   EDUCATION TIMELINE (education.html)
+---------------------------*/
+
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    width: 2px;
+    height: 100%;
+    background: #333;
+}
+
+.timeline-item {
+    margin-bottom: 3.5rem;
+    position: relative;
+}
+
+.timeline-dot {
+    width: 1.6rem;
+    height: 1.6rem;
+    background: #b74b4b;
+    border-radius: 50%;
+    position: absolute;
+    left: 0.2rem;
+    top: 0.6rem;
+}
+
+.timeline-content {
+    margin-left: 4rem;
+    background: #111;
+    padding: 2.5rem 2rem;
+    border-radius: 1.4rem;
+    border: 1px solid #333;
+    box-shadow: 0 0 25px rgba(183, 75, 75, 0.2);
+}
+
+.timeline-content h3 {
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.timeline-date {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #bbb;
+}
+
+.timeline-content p {
+    font-size: 1.6rem;
+    color: #ccc;
+    line-height: 1.7;
+}
+
+/* -------------------------
+   EXPERIENCE (experience.html)
+---------------------------*/
+
+.cards-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.wide-card {
+    background: #111;
+    padding: 3rem 2.5rem;
+    border-radius: 1.6rem;
+    border: 1px solid #333;
+    transition: 0.3s ease;
+    box-shadow: 0 0 25px rgba(183, 75, 75, 0.2);
+}
+
+.wide-card:hover {
+    transform: translateY(-8px);
+    border-color: #b74b4b;
+    box-shadow: 0 0 35px rgba(183, 75, 75, 0.4);
+}
+
+.wide-card h3 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+}
+
+.wide-card ul li {
+    font-size: 1.6rem;
+    margin-bottom: 0.7rem;
+    color: #ccc;
+}
+
+.sub-heading {
+    display: block;
+    font-size: 1.5rem;
+    color: #bbb;
+    margin-bottom: 1.2rem;
+}
+
+/* -------------------------
+   CONTACT PAGE (contact.html)
+---------------------------*/
+
+.contact-section {
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.contact-subtitle {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: #b74b4b;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+/* Contact Card Grid */
+.contact-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+/* Contact Item Card */
+.contact-item {
+    background: #111;
+    padding: 2.5rem 2rem;
+    border-radius: 1.8rem;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+    transition: 0.35s ease;
+    box-shadow: 0 0 20px rgba(183, 75, 75, 0.15);
+}
+
+.contact-item:hover {
+    transform: translateY(-10px);
+    border-color: #b74b4b;
+    box-shadow: 0 0 40px rgba(183, 75, 75, 0.5);
+}
+
+/* Icons */
+.contact-item i {
+    font-size: 3rem;
+    color: #b74b4b;
+    background: #150000;
+    padding: 1.2rem;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(183, 75, 75, 0.3);
+    transition: 0.3s ease;
+}
+
+.contact-item:hover i {
+    transform: scale(1.15);
+    box-shadow: 0 0 20px rgba(183, 75, 75, 0.7);
+}
+
+/* Text */
+.contact-item h3 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 0.6rem;
+}
+
+.contact-item p {
+    font-size: 1.6rem;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* Contact page socials with username text (pill style instead of circles) */
+.contact-section .social-icons {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-section .social-icons a {
+    width: auto;
+    height: auto;
+    padding: 0.8rem 1.6rem;
+    border-radius: 999px;
+    font-size: 1.6rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.contact-section .social-icons a span {
+    font-size: 1.6rem;
+}
+
+/* keep username visible on hover */
+.contact-section .social-icons a:hover span {
+    color: #000;
+}
+
+/* -------------------------
+   RESPONSIVE DESIGN
+---------------------------*/
+
+/* Tablet & small laptop */
+@media (max-width: 900px) {
+    .home {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-img {
+        margin-bottom: 2rem;
+    }
+
+    .home-content h1 {
+        font-size: 4rem;
+    }
+}
+
+/* Phones */
+@media (max-width: 650px) {
+
+    header {
+        padding: 1.2rem 6%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        margin: 0.5rem 1rem;
+        font-size: 1.6rem;
+    }
+
+    section {
+        padding: 9rem 6% 4rem;
+    }
+
+    .contact-item {
+        text-align: left;
+    }
+}

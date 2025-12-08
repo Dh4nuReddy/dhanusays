@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhanunjay Reddy | Portfolio</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+<header>
+    <a href="index.html" class="logo">Dhanunjay Reddy</a>
+
+    <!-- Mobile menu icon -->
+    <div class="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="services.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="education.html">Education</a>
+        <a href="experience.html">Experience</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="home">
+
+    <!-- Optional profile image -->
+    <!--
+    <div class="home-img">
+        <img src="img/profile.jpg" alt="Dhanunjay Reddy">
+    </div>
+    -->
+
+    <div class="home-content">
+        <h1>Hi, I'm <span>Dhanu</span></h1>
+        <h3 class="typing-text">I'm a <span></span></h3>
+
+        <p>
+            I’m a frontend developer and IT support enthusiast from Hyderabad,
+            with hands-on experience in building responsive web applications,
+            troubleshooting Windows & Linux systems, and setting up networks.
+            I love turning ideas into clean, working UIs and solving real-world
+            tech problems.
+        </p>
+
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/dhanunjayreddy/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/dh4nureddy" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+
+        <a href="contact.html" class="btn">Hire Me</a>
+    </div>
+</section>
+
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('header nav');
+
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('nav-open');
+    });
+</script>
+
+</body>
+</html>
