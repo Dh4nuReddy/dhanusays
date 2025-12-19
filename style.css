@@ -219,7 +219,7 @@ span {
 
 @keyframes words {
     0%, 20%   { content: "Web Developer"; }
-    21%, 40%  { content: "IT Support Engineer"; }
+    21%, 40%  { content: "Service Now Developer"; }
     41%, 60%  { content: "IoT Developer"; }
     61%, 80%  { content: "Automobile Service Expert"; }
     81%, 100% { content: "Business Enthusiast"; }
